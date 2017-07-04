@@ -7,14 +7,18 @@ import PostGrid from "./components/PostGrid";
 import SinglePost from "./components/SinglePost";
 // import router
 import { Router, Route, IndexRoute, browserHistory } from "react-router";
+import { Provider } from "react-redux";
+import store, { history } from "./store";
 
 const router = (
-  <Router history={browserHistory}>
-    <Route path="/" component={App}>
-      <IndexRoute component={PostGrid} />
-      <Route path="/view/:postId" component={SinglePost} />
-    </Route>
-  </Router>
+  <Provider store={store}>
+    <Router history={history}>
+      <Route path="/" component={App}>
+        <IndexRoute component={PostGrid} />
+        <Route path="/view/:postId" component={SinglePost} />
+      </Route>
+    </Router>
+  </Provider>
 );
 
 render(router, document.getElementById("root"));
