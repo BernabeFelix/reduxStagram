@@ -6,12 +6,7 @@ class PostGrid extends React.Component {
     return (
       <div className="photo-grid">
         {this.props.posts.map((post, i) =>
-          <PostGridElement
-            key={i}
-            i={i}
-            post={post}
-            comments={this.props.comments[post.code] || []}
-          />
+          <PostGridElement {...this.props} key={i} i={i} post={post} />
         )}
       </div>
     );

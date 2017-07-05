@@ -4,7 +4,7 @@ import CSSTransitionGroup from "react-addons-css-transition-group";
 
 class PostGridElement extends React.Component {
   render() {
-    const { post, comments } = this.props;
+    const { post, comments, i } = this.props;
 
     return (
       <figure className="grid-figure">
@@ -17,7 +17,7 @@ class PostGridElement extends React.Component {
             />
           </Link>
           <CSSTransitionGroup
-            transitionName="link"
+            transitionName="like"
             transitionEnterTimeOut={500}
             transitionLeaveTimeOut={500}
           >
@@ -32,13 +32,16 @@ class PostGridElement extends React.Component {
             {post.caption}
           </p>
           <div className="control-buttons">
-            <button className="likes">
+            <button
+              className="likes"
+              onClick={() => this.props.incrementLikes(i)}
+            >
               &hearts; {post.likes}
             </button>
             <Link to={`/view/${post.code}`} className="button">
               <span className="comment-count">
                 <span className="speech-bubble" />
-                {comments.length > 0 ? comments.length : 0}
+                {comments[post.code] ? comments[post.code].length : 0}
               </span>
             </Link>
           </div>
