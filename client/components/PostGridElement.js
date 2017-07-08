@@ -18,8 +18,8 @@ class PostGridElement extends React.Component {
           </Link>
           <CSSTransitionGroup
             transitionName="like"
-            transitionEnterTimeOut={500}
-            transitionLeaveTimeOut={500}
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={500}
           >
             <span key={post.likes} className="likes-heart">
               {post.likes}
