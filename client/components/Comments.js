@@ -31,9 +31,7 @@ class Comments extends React.Component {
   render() {
     return (
       <div className="comment">
-        {this.props.comments[this.props.postId].map(
-          this.renderSingleComment.bind(this)
-        )}
+        {this.props.postComments.map(this.renderSingleComment.bind(this))}
         <form
           ref="commentForm"
           className="comment-form"

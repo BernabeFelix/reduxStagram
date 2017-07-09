@@ -1,4 +1,4 @@
-const postComments = (state, action) => {
+const postComments = (state = [], action) => {
   switch (action.type) {
     case "ADD_COMMENT":
       return [
@@ -8,7 +8,6 @@ const postComments = (state, action) => {
           user: action.author
         }
       ];
-      break;
     case "REMOVE_COMMENT":
       return [...state.slice(0, action.i), ...state.slice(action.i + 1)];
     default:
