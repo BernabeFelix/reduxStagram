@@ -9,7 +9,12 @@ class Comments extends React.Component {
             {comment.user}
           </strong>
           {comment.text}
-          <button className="remove-comment">&times;</button>
+          <button
+            className="remove-comment"
+            onClick={this.props.removeComment.bind(null, this.props.postId, i)}
+          >
+            &times;
+          </button>
         </p>
       </div>
     );
@@ -26,7 +31,9 @@ class Comments extends React.Component {
   render() {
     return (
       <div className="comment">
-        {this.props.comments[this.props.postId].map(this.renderSingleComment)}
+        {this.props.comments[this.props.postId].map(
+          this.renderSingleComment.bind(this)
+        )}
         <form
           ref="commentForm"
           className="comment-form"

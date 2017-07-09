@@ -10,7 +10,7 @@ const postComments = (state, action) => {
       ];
       break;
     case "REMOVE_COMMENT":
-      return state;
+      return [...state.slice(0, action.i), ...state.slice(action.i + 1)];
     default:
       return state;
   }

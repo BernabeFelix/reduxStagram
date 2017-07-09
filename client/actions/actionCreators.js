@@ -15,10 +15,10 @@ export const addComment = (postId, author, comment) => {
   };
 };
 // remove comment
-export const removeComment = (postId, index) => {
+export const removeComment = (postId, i) => {
   return {
     type: "REMOVE_COMMENT",
     postId,
-    index
+    i
   };
 };
