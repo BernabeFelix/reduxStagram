@@ -10,7 +10,7 @@ class SinglePost extends React.Component {
     return (
       <div className="single-photo">
         <PostGridElement {...this.props} post={this.props.posts[i]} i={i} />
-        <Comments comments={this.props.comments[postId]} />
+        <Comments postId={postId} {...this.props} />
       </div>
     );
   }
